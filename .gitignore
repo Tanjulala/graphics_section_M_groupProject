@@ -1,0 +1,26 @@
+# ===============================
+# Code::Blocks / OpenGL Project
+# ===============================
+
+# Build output folders
+openglportable-64bit/openglportable/bin/
+openglportable-64bit/openglportable/obj/
+
+# Debug / Release folders (safety)
+Debug/
+Release/
+
+# Compiled files
+*.o
+*.exe
+
+# Code::Blocks generated files
+*.layout
+*.depend
+
+# DLLs (freeglut / OpenGL runtime)
+*.dll
+
+# OS junk
+Thumbs.db
+.DS_Store
