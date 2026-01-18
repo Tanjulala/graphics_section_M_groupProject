@@ -1,15 +1,18 @@
 #include <GL/glut.h>
 #include <bits/stdc++.h>
 #include <Sky.h>
+#include <Road.h>
 using namespace std;
 
 Sky sky;
+Road road;
 
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
 
     sky.draw();
+    road.draw();
 
     glFlush();
 

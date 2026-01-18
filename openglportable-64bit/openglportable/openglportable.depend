@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1768740280 source:d:\1111 computer graphics project\openglportable-64bit\openglportable\src\sky.cpp
+	"Sky.h"
+
+1768740380 d:\1111 computer graphics project\openglportable-64bit\openglportable\include\sky.h
+	<GL/glut.h>
+
+1761232548 d:\1111 computer graphics project\openglportable-64bit\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1761232548 d:\1111 computer graphics project\openglportable-64bit\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1768741909 source:d:\1111 computer graphics project\openglportable-64bit\openglportable\src\road.cpp
+	"Road.h"
+
+1768741943 d:\1111 computer graphics project\openglportable-64bit\openglportable\include\road.h
+	<GL/glut.h>
+
+1768741957 source:d:\1111 computer graphics project\openglportable-64bit\openglportable\main.cpp
+	<GL/glut.h>
+	<bits/stdc++.h>
+	<Sky.h>
+	<Road.h>
+
