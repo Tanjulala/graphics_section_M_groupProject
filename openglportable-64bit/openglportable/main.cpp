@@ -1,12 +1,16 @@
 #include <GL/glut.h>
 #include <bits/stdc++.h>
+#include <Sky.h>
 using namespace std;
+
+Sky sky;
 
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    glBegin(GL_QUADS);
-    glEnd();
+
+    sky.draw();
+
     glFlush();
 
 }
