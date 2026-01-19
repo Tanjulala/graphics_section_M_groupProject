@@ -2,10 +2,14 @@
 #include <bits/stdc++.h>
 #include <Sky.h>
 #include <Road.h>
+#include <Railline.h>
+#include <Train.h>
 using namespace std;
 
 Sky sky;
 Road road;
+Railline railline;
+Train train;
 
 void display()
 {
@@ -13,7 +17,8 @@ void display()
 
     sky.draw();
     road.draw();
-
+    railline.draw();
+    train.draw();
     glFlush();
 
 }
