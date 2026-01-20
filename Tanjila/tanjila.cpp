@@ -504,9 +504,9 @@ void drawFire(float x, float y, float scale) {
     glTranslatef(x, y, 0);
     glScalef(scale, scale, 1.0f);
 
-    // --- NEW: FIRE SMOKE ---
-    // We use smokeY (already in your code) to animate these puffs
-    glColor4f(0.2f, 0.2f, 0.2f, 0.5f); // Darker, semi-transparent smoke
+
+    // smoke
+    glColor4f(0.2f, 0.2f, 0.2f, 0.5f);
     drawCircle(2, 15 + smokeY, 5);      // Puff 1
     drawCircle(-3, 22 + smokeY, 6);     // Puff 2
     drawCircle(4, 30 + smokeY, 7);      // Puff 3
@@ -516,7 +516,7 @@ void drawFire(float x, float y, float scale) {
     glRectf(-10, 0, 10, 4);
     glRectf(-2, 0, 2, 8);
 
-    // Dynamic flame height based on flicker
+
     float flameHeight = 15.0f + (sin(fireFlicker) * 5.0f);
 
     // Outer Flame (Red)
@@ -531,7 +531,7 @@ void drawFire(float x, float y, float scale) {
         glVertex2f(-5, 3); glVertex2f(0, flameHeight); glVertex2f(5, 3);
     glEnd();
 
-    // Inner Core (Yellow/White)
+    // Inner Core (Yellow)
     glColor3f(1.0f, 1.0f, 0.0f);
     drawCircle(0, 5, 4);
 
@@ -541,27 +541,35 @@ void drawFire(float x, float y, float scale) {
 void drawSkyGradient() {
     glBegin(GL_QUADS);
     if (isDay) {
-        // Light Blue at top
-        glColor3f(0.4f, 0.7f, 1.0f); glVertex2f(-250, 250); glVertex2f(250, 250);
-        // Lighter Cyan/White at horizon
-        glColor3f(0.8f, 0.9f, 1.0f); glVertex2f(250, -100); glVertex2f(-250, -100);
+        // Light Blue
+        glColor3f(0.4f, 0.7f, 1.0f);
+        glVertex2f(-250, 250);
+         glVertex2f(250, 250);
+        // Lighter Cyan
+        glColor3f(0.8f, 0.9f, 1.0f);
+        glVertex2f(250, -100);
+        glVertex2f(-250, -100);
     } else {
-        // Deep Navy at top
-        glColor3f(0.02f, 0.02f, 0.1f); glVertex2f(-250, 250); glVertex2f(250, 250);
-        // Slight Purple/Midnight blue at horizon
-        glColor3f(0.1f, 0.05f, 0.2f); glVertex2f(250, -100); glVertex2f(-250, -100);
+        // top blue
+        glColor3f(0.02f, 0.02f, 0.1f);
+        glVertex2f(-250, 250);
+        glVertex2f(250, 250);
+        // Midnight blue
+        glColor3f(0.1f, 0.05f, 0.2f);
+        glVertex2f(250, -100);
+        glVertex2f(-250, -100);
     }
     glEnd();
 }
 
 void drawStars() {
     if (isDay) return;
-    srand(123); // Fixed seed so stars don't move
+    srand(123);
     for (int i = 0; i < 60; i++) {
         float x = (rand() % 500) - 250;
-        float y = (rand() % 250); // Keep stars in the upper half
+        float y = (rand() % 250); //upper half
 
-        // Use fireFlicker to make stars "twinkle"
+
         float twinkle = (sin(fireFlicker + i) + 1.0f) / 2.0f;
         glColor4f(1.0f, 1.0f, 1.0f, 0.3f + (twinkle * 0.7f));
 
@@ -576,15 +584,15 @@ void drawClockTower(float x, float baseY) {
     glPushMatrix();
     glTranslatef(x, baseY, 0);
 
-    // 1. Tower Body (Tall and stone-colored)
-    glColor3f(0.7f, 0.7f, 0.65f); // Light stone/beige
+    //  Body
+    glColor3f(0.7f, 0.7f, 0.65f);
     glRectf(-20, 0, 20, 90);
 
-    // 2. The Clock Face
+    // Clock Face
     glColor3f(1.0f, 1.0f, 1.0f); // White circle
     drawCircle(0, 70, 12);
 
-    // Clock Hands (Static)
+    // Clock Hand
     glColor3f(0.1f, 0.1f, 0.1f);
     glLineWidth(2);
     glBegin(GL_LINES);
@@ -592,27 +600,27 @@ void drawClockTower(float x, float baseY) {
         glVertex2f(0, 70); glVertex2f(5, 70); // Minute hand
     glEnd();
 
-    // 3. Roof (Steep and Pointy)
-    glColor3f(0.4f, 0.1f, 0.1f); // Dark red tiles
+    // 3. Roof
+    glColor3f(0.4f, 0.1f, 0.1f);
     glBegin(GL_TRIANGLES);
         glVertex2f(-25, 90);
         glVertex2f(25, 90);
         glVertex2f(0, 130);
     glEnd();
 
-    // Tiny gold ball on top of the spire
+    // Tiny ball
     glColor3f(0.9f, 0.7f, 0.2f);
     drawCircle(0, 130, 3);
 
-    // 4. Windows (Slits)
+    // Windows
     glColor3f(0.2f, 0.2f, 0.2f);
     glRectf(-5, 40, 5, 55);
     glRectf(-5, 20, 5, 35);
 
-    // 5. Arched Entrance
+    // door
     glColor3f(0.3f, 0.2f, 0.1f);
-    drawCircle(0, 10, 8); // Top of arch
-    glRectf(-8, 0, 8, 10); // Bottom of arch
+    drawCircle(0, 10, 8); // Top of door
+    glRectf(-8, 0, 8, 10); // Bottom of door
 
     glPopMatrix();
 }
@@ -622,11 +630,11 @@ void drawTower(float x, float baseY, float scale) {
     glTranslatef(x, baseY, 0);
     glScalef(scale, scale, 1.0f);
 
-    // 1. Tower Body (Smooth cream/beige color)
+    // Body
     glColor3f(0.75f, 0.72f, 0.66f);
     glRectf(-18, 0, 18, 85);
 
-    // 2. Roof (Classic dark red to match chalets)
+    // Roof
     glColor3f(0.45f, 0.12f, 0.1f);
     glBegin(GL_TRIANGLES);
         glVertex2f(-22, 85);
@@ -634,33 +642,60 @@ void drawTower(float x, float baseY, float scale) {
         glVertex2f(0, 120);
     glEnd();
 
-    // 3. Decorative Gold Tip
-    glColor3f(0.9f, 0.7f, 0.2f);
-    drawCircle(0, 120, 2.5);
 
-    // 4. Windows (Normal square windows)
-    if (isDay) glColor3f(0.2f, 0.2f, 0.2f); // Dark windows
+    //  Windows
+    if (isDay)
+        glColor3f(0.2f, 0.2f, 0.2f);
     else glColor3f(1.0f, 0.9f, 0.0f);       // Glowing windows at night
     glRectf(-6, 55, 6, 70);
     glRectf(-6, 30, 6, 45);
 
-    // 5. Wooden Door
+    // Wooden Door
     glColor3f(0.35f, 0.2f, 0.1f);
     glRectf(-7, 0, 7, 15);
 
     glPopMatrix();
 }
 
+void drawSwissFlag(float x, float y, float size) {
+    glPushMatrix();
+    glTranslatef(x, y, 0);
+
+    //  Square
+    glColor3f(1.0f, 0.0f, 0.0f);
+    glRectf(-size / 2, -size / 2, size / 2, size / 2);
+
+    //  Cross
+    glColor3f(1.0f, 1.0f, 1.0f);
+    float barThickness = size * 0.2f;
+    float barLength = size * 0.6f;
+
+    // Vertical Bar
+    glRectf(-barThickness / 2, -barLength / 2, barThickness / 2, barLength / 2);
+    // Horizontal Bar
+    glRectf(-barLength / 2, -barThickness / 2, barLength / 2, barThickness / 2);
+
+    glPopMatrix();
+}
+
+void drawFlagWithPole(float x, float y) {
+    //  Pole
+    glColor3f(0.3f, 0.3f, 0.3f);
+    glRectf(x - 1, y, x + 1, y + 50);
+
+    // Flag
+    drawSwissFlag(x + 11, y + 40, 20);
+}
 void display() {
     if (isDay) glClearColor(0.5f, 0.8f, 1.0f, 1);
     else glClearColor(0.05f, 0.05f, 0.15f, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
 
-    // --- NEW SKY DETAILS ---
+
     drawSkyGradient();
     drawStars();
-    // -----------------------
+
 
     if (isDay) {
         glColor3f(1, 1, 0);
@@ -668,7 +703,7 @@ void display() {
     } else {
         glColor3f(0.9f, 0.9f, 0.8f);
         drawCircle(180, 180, 18); // Moon
-        // Optional: Add a small "crater" detail to the moon
+       //small circle
         glColor3f(0.8f, 0.8f, 0.7f);
         drawCircle(175, 185, 4);
     }
@@ -733,6 +768,8 @@ void display() {
     drawBus();
     drawCar2();
     drawCableCar();
+    drawFlagWithPole(130, -60);
+
     drawFire(200, -90, 0.7f);
     drawSnow();
 
@@ -740,7 +777,7 @@ void display() {
 }
 
 void update(int value) {
-    cloudX += 0.2f * globalSpeed;
+    cloudX += 0.1f * globalSpeed;
     if (cloudX > 300) cloudX = -350;
 
     cloudX2 += 0.1f * globalSpeed;
@@ -762,7 +799,7 @@ void update(int value) {
     if (smokeY > 20) smokeY = 0;
 
     if (isTurbineRotating) {
-        turbineAngle += 1.0f * globalSpeed;
+        turbineAngle += 0.9f * globalSpeed;
         if (turbineAngle > 360) turbineAngle -= 360;
     }
 
@@ -822,4 +859,3 @@ int main(int argc, char** argv) {
     glutMainLoop();
     return 0;
 }
-
