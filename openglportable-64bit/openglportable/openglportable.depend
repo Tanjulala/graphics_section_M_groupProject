@@ -19,15 +19,26 @@
 	<GL/glu.h>
 	<stdlib.h>
 
-1768741909 source:d:\1111 computer graphics project\openglportable-64bit\openglportable\src\road.cpp
+1768742182 source:d:\1111 computer graphics project\openglportable-64bit\openglportable\src\road.cpp
 	"Road.h"
 
 1768741943 d:\1111 computer graphics project\openglportable-64bit\openglportable\include\road.h
 	<GL/glut.h>
 
-1768741957 source:d:\1111 computer graphics project\openglportable-64bit\openglportable\main.cpp
+1768809091 source:d:\1111 computer graphics project\openglportable-64bit\openglportable\main.cpp
 	<GL/glut.h>
 	<bits/stdc++.h>
 	<Sky.h>
 	<Road.h>
+	<Railline.h>
+	<Train.h>
+
+1768808963 d:\1111 computer graphics project\openglportable-64bit\openglportable\include\railline.h
+	<GL/glut.h>
+
+1768808992 source:d:\1111 computer graphics project\openglportable-64bit\openglportable\src\railline.cpp
+	"Railline.h"
+
+1768809287 d:\1111 computer graphics project\openglportable-64bit\openglportable\include\train.h
+	<GL/glut.h>
 
