@@ -42,3 +42,21 @@
 1768809287 d:\1111 computer graphics project\openglportable-64bit\openglportable\include\train.h
 	<GL/glut.h>
 
+1768896482 source:c:\users\dell\desktop\graphics\git\openglportable-64bit\openglportable\main.cpp
+	<GL/glut.h>
+	<bits/stdc++.h>
+
+1768835238 c:\users\dell\desktop\graphics\git\openglportable-64bit\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1768835238 c:\users\dell\desktop\graphics\git\openglportable-64bit\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
