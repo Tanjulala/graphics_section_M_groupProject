@@ -1080,7 +1080,7 @@ void car5() {
     circle(3.5,0+218+car5Position,0-43,0,1,1);
     glEnd();
 }
-
+void drawChalet(float x, float baseY, bool hasSmoke, float phase);
 void road_divider() {
 
     ///Road er Divider gulo///
@@ -2321,6 +2321,10 @@ void display3() {
     sun();
     glPopMatrix();
     grass();
+    drawChalet(200, 83, true, 0.0f);
+    drawChalet(50, 83, true, 0.0f);
+    drawChalet(-100, 83, true, 0.0f);
+    drawChalet(-220, 83, true, 0.0f);
     road();
     road_divider();
     car1();
@@ -2331,6 +2335,7 @@ void display3() {
     Railline();
     Train();
     mountainRange();
+
     bottomWater();
     bridgeBottom();
     Dam();
