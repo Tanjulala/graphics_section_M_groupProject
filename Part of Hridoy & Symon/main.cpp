@@ -1139,6 +1139,171 @@ void display() {
     glFlush();
 
 }
+void DamSideBoat1(){
+
+
+    glBegin(GL_POLYGON);                          ///boat
+    glColor3ub(230,230,230);
+    glVertex2d(-235.4213957892349, -162.945880839417);
+    glVertex2d(-203.5175412835598, -164.5050917739049);
+    glVertex2d(-202.9178447702952, -159.9473982730942);
+    glVertex2d(-236.2609709078052, -159.3477017598296);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(230,230,230);
+    glVertex2d(-202.9178447702952, -159.9473982730942);
+    glVertex2d(-203.5175412835598, -164.5050917739049);
+    glVertex2d(-181.088891687465, -164.6250310765578);
+    glVertex2d(-180.7546651571983, -159.2529960332689);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(230,230,230);
+    glVertex2d(-180.7546651571983, -159.2529960332689);
+    glVertex2d(-181.088891687465, -164.6250310765578);
+    glVertex2d(-159.1399993019817, -163.5455773526816);
+    glVertex2d(-152.7832162613773, -157.6685515226888);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(230,230,230);
+    glVertex2d(-236.2609709078052, -159.3477017598296);
+    glVertex2d(-202.9178447702952, -159.9473982730942);
+    glVertex2d(-202.9088371819358, -152.3587962583406);
+    glVertex2d(-235.7165351159443, -151.895005601404);
+    glEnd();
+
+   glBegin(GL_POLYGON);
+   glColor3ub(230,230,230);
+   glVertex2d(-202.9088371819358, -152.3587962583406);
+   glVertex2d(-202.9178447702952, -159.9473982730942);
+   glVertex2d(-180.7546651571983, -159.2529960332689);
+   glVertex2d(-180.8885206675883, -152.1460889282279);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   glColor3ub(230,230,230);
+   glVertex2d(-180.8885206675883, -152.1460889282279);
+   glVertex2d(-180.7546651571983, -159.2529960332689);
+   glVertex2d(-152.7832162613773, -157.6685515226888);
+   glVertex2d(-150, -150);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   glColor3ub(230,230,230);
+   glVertex2d(-150, -150);
+   glVertex2d(-152.7832162613773, -157.6685515226888);
+   glVertex2d(-149.1123797364638, -155.8334801920992);
+   glEnd();
+                                                 ///upp er part
+   glLineWidth(3.0f);
+   glBegin(GL_LINE_LOOP);
+   glColor3ub(200,116,19);
+   glVertex2d(-233.4474230097333, -146.1409232547557);
+   glVertex2d(-234.2041226537694, -144.173504180262);
+   glVertex2d(-163.4860002181131, -142.230414027283);
+   glVertex2d(-163.4860002181131, -142.230414027283);
+   glEnd();
+
+   glBegin(GL_LINES);
+   glColor3ub(0,0,0);
+   glVertex2d(-233.4474230097333, -146.1409232547557);
+   glVertex2d(-235.7165351159443, -151.895005601404);
+   glEnd();
+
+   glBegin(GL_LINES);
+   glColor3ub(0,0,0);
+   glVertex2d(-223.6859976016684, -146.2165932191593);
+   glVertex2d(-224.8210470677225, -151.8918405494297);
+   glEnd();
+
+
+   glBegin(GL_LINES);
+   glColor3ub(0,0,0);
+   glVertex2d(-211.6544732614954, -145.4598935751233);
+   glVertex2d(-212.3675447218886, -151.8859070878713);
+   glEnd();
+
+   glBegin(GL_LINES);
+   glColor3ub(0,0,0);
+   glVertex2d(-198.7149093484791, -144.55185400228);
+   glVertex2d(-199.2445990993043, -152.0431804782369);
+   glEnd();
+
+   glBegin(GL_LINES);
+   glColor3ub(0,0,0);
+   glVertex2d(-184.7916358982159, -144.0978342158584);
+   glVertex2d(-187.8727809810566, -152.079440691704);
+   glEnd();
+
+   glBegin(GL_LINES);
+   glColor3ub(0,0,0);
+   glVertex2d(-169.4306331242843, -143.1897946430152);
+   glVertex2d(-168.5225935514411, -151.5891606918153);
+   glEnd();
+
+   glBegin(GL_LINES);
+   glColor3ub(0,0,0);
+   glVertex2d(-163.4860002181131, -142.230414027283);
+   glVertex2d(-162.9230161855743, -149.6974115817252);
+   glEnd();
+
+}
+void updateBoats(int value) {
+    boat1Position += boatSpeed;
+    if (boat1Position > 500.0f) {
+        boat1Position = -600.0f;
+    }
+    glutPostRedisplay();
+    glutTimerFunc(16, updateBoats, 0);
+}
+void handleKeypress(unsigned char key, int x, int y) {
+    switch (key) {
+
+        case 'w':
+            speed += 0.5;
+            break;
+
+        case 's':
+            speed -= 0.5;
+            if (speed < 0)
+                speed = 0;
+            break;
+
+       case 'd':
+            moveSun = -60;
+         break;
+
+
+      case '1':
+           glutDisplayFunc(display1_view);
+       break;
+
+      case '2':
+          glutDisplayFunc(display);
+        break;
+
+
+    }
+    glutPostRedisplay();
+}
+
+void handleMouse(int button, int state, int x, int y)
+{
+        if (button == GLUT_LEFT_BUTTON)
+        {
+            boatSpeed += 0.5f;
+
+        }
+        if (button == GLUT_RIGHT_BUTTON)
+        {
+            boatSpeed -= 0.5f;
+            if(boatSpeed < 0)
+                boatSpeed = 0;
+        }
+        glutPostRedisplay();
+}
 
  int main(int argc, char** argv) {
     glutInit(&argc, argv);
@@ -1148,6 +1313,14 @@ void display() {
     glutMouseFunc(handleMouse);
     glutDisplayFunc(display1_view); /// default display
     gluOrtho2D(-250, 250, -250, 250);
+    glutTimerFunc(16, updateBoats, 0);
+    glutTimerFunc(20, sunUpdateRise, 0);
+    glutTimerFunc(22, update1, 0);
+    glutTimerFunc(22, update2, 0);
+    glutTimerFunc(22, update3, 0);
+    glutTimerFunc(22, update4, 0);
+    glutTimerFunc(22, update5, 0);
+    glutTimerFunc(22, update6, 0);
     glutMainLoop();
     return 0;
 }
