@@ -64,13 +64,13 @@ void display0_view() {
     renderBitmapString(-125.0f, 125.0f, 0.0f, GLUT_BITMAP_TIMES_ROMAN_24,
     "COURSE TEACHER :   ZISAN AHMEND");
     renderBitmapString(-125.0f, 100.0f, 0.0f, GLUT_BITMAP_TIMES_ROMAN_24,
-    "MD Symon Islam Jihan – 23-54263-3\n\n");
+    "MD Symon Islam Jihan â€“ 23-54263-3\n\n");
     renderBitmapString(-125.0f, 75.0f, 0.0f, GLUT_BITMAP_TIMES_ROMAN_24,
-    "Hridoy Mia – 23-51001-1");
+    "Hridoy Mia â€“ 23-51001-1");
     renderBitmapString(-125.0f, 50.0f, 0.0f, GLUT_BITMAP_TIMES_ROMAN_24,
-    "Muhshanat Hossain Tanjila – 23-52533-2");
+    "Muhshanat Hossain Tanjila â€“ 23-52533-2");
     renderBitmapString(-125.0f, 25.0f, 0.0f, GLUT_BITMAP_TIMES_ROMAN_24,
-    "Tasnima Tabassum Sumaiya – 23-52511-2");
+    "Tasnima Tabassum Sumaiya â€“ 23-52511-2");
     glutSwapBuffers();
 }
 
@@ -3785,18 +3785,26 @@ void handleKeypress(unsigned char key, int x, int y)
 	{
         case 'w':
             speed += 0.5;
+			globalSpeed += 0.2f;
             break;
 
         case 's':
             speed -= 0.5;
-            if (speed < 0)
-                speed = 0;
+			if(globalSpeed > 0.2) globalSpeed -= 0.2f;
+            if (speed < 0) speed = 0;
         break;
 
-       case 'd':
+        case 'd':
             moveSun = -60;
 			isNight = false;
-         break;
+			isDay = true;
+            break;
+		case 'i': case 'I':
+             isSnowing = !isSnowing;
+             break;
+	    case 'r': case 'R':
+            isTurbineRotating = !isTurbineRotating;
+            break;
       case '1':
            glutDisplayFunc(display0_view);
        break;
@@ -3812,6 +3820,7 @@ void handleKeypress(unsigned char key, int x, int y)
           break;
 	  case 'n':
           isNight = true;
+		  isDay = false;
           break;
     }
     glutPostRedisplay();
