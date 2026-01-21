@@ -3785,18 +3785,26 @@ void handleKeypress(unsigned char key, int x, int y)
 	{
         case 'w':
             speed += 0.5;
+			globalSpeed += 0.2f;
             break;
 
         case 's':
             speed -= 0.5;
-            if (speed < 0)
-                speed = 0;
+			if(globalSpeed > 0.2) globalSpeed -= 0.2f;
+            if (speed < 0) speed = 0;
         break;
 
-       case 'd':
+        case 'd':
             moveSun = -60;
 			isNight = false;
-         break;
+			isDay = true;
+            break;
+		case 'i': case 'I':
+             isSnowing = !isSnowing;
+             break;
+	    case 'r': case 'R':
+            isTurbineRotating = !isTurbineRotating;
+            break;
       case '1':
            glutDisplayFunc(display0_view);
        break;
@@ -3812,6 +3820,7 @@ void handleKeypress(unsigned char key, int x, int y)
           break;
 	  case 'n':
           isNight = true;
+		  isDay = false;
           break;
     }
     glutPostRedisplay();
@@ -3838,16 +3847,11 @@ int main(int argc, char** argv) {
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(1920, 1080);
     glutCreateWindow("Combined Animation: Transitions, Swiss Alpine, City View, Bridge & Village");
-
-    // Remove global projection setup here – each display function will set its own
-
     initSnow();
     glutDisplayFunc(display0_view);
     glutKeyboardFunc(handleKeypress);
     glutMouseFunc(handleMouse);
-    glutReshapeFunc(handleResize);  // Keep for display1, but make it conditional
-
-    // All timers remain the same
+    glutReshapeFunc(handleResize);
     glutTimerFunc(16, updateBoats, 0);
     glutTimerFunc(20, sunUpdateRise, 0);
     glutTimerFunc(22, update1, 0);
@@ -3860,7 +3864,6 @@ int main(int argc, char** argv) {
     glutTimerFunc(0, updateClouds, 0);
     glutTimerFunc(0, updateBoat, 0);
     glutTimerFunc(0, updateCars, 0);
-
     glutMainLoop();
     return 0;
 }
