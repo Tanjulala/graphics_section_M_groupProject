@@ -25,7 +25,53 @@ Team Member	Scenario	Description
 
 1)Muhshanat Hossain Tanjila -	Switzerland	A 3D landscape of the Swiss Alps with mountains, snow, and greenery.
 
+Switzerland Scene ------------
+
+Current Features:
+
+->Mountains with snow caps 
+
+->Pine trees, grass, and fences
+
+->Chalets with animated smoke
+
+->Moving cars, buses, and a cable car 
+
+->Pond, fire, Swiss flag, wind turbines
+
+->Day/night cycle with sun, moon, and stars
+
+->Snowfall animation
+
+Interactive Controls:
+
+>>D / N → Toggle Day/Night
+
+>>W / S → Increase / Decrease animation speed
+
+>>I → Toggle Snow
+
+>>R → Start / Stop Wind Turbines
+
 2)Tasnima Tabassum Sumaiya -	China	A 3D representation of iconic Chinese architecture and scenery.
+
+China Scene----------------------------
+
+Current Features:
+
+>>Traditional Chinese buildings
+
+>>Roof tiers with gold rims and detailed windows and doors
+
+>>Decorative lanterns hanging from buildings
+
+>>Sakura-style trees 
+
+>>Moving elements: boats on river, bus on road
+
+>>River, fences, and grass 
+
+>>Day/night cycle with sun, moon, and stars
 
 3)Hridoy Mia -	Hills	A generic hill scene with mountains, trees, and a flowing river.
 
