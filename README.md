@@ -29,19 +29,19 @@ Switzerland Scene ------------
 
 Current Features:
 
-->Mountains with snow caps 
+>>Mountains with snow caps 
 
-->Pine trees, grass, and fences
+>>Pine trees, grass, and fences
 
-->Chalets with animated smoke
+>>Chalets with animated smoke
 
-->Moving cars, buses, and a cable car 
+>>Moving cars, buses, and a cable car 
 
-->Pond, fire, Swiss flag, wind turbines
+>>Pond, fire, Swiss flag, wind turbines
 
-->Day/night cycle with sun, moon, and stars
+>>Day/night cycle with sun, moon, and stars
 
-->Snowfall animation
+>>Snowfall animation
 
 Interactive Controls:
 
