@@ -2533,6 +2533,8 @@ void drawChalet(float x, float baseY, bool hasSmoke, float phase) {
     if (isDay) glColor3f(0.2f, 0.2f, 0.2f);
     else glColor3f(1.0f, 1.0f, 0.0f);
     glRectf(x + 8, baseY + 18, x + 16, baseY + 26);
+	glVertex2f(x + houseWidth/2 + 10, baseY + houseHeight);
+
     if (hasSmoke) {
 
         float localSmokeY = fmod(smokeY + phase, 30.0f);
