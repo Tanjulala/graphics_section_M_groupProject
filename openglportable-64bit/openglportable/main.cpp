@@ -13,12 +13,14 @@ float boat1Position =-500.0f;
 float speed =5.0;
 float boatSpeed = 0.3;
 float moveSun = -60.0f;
+bool nightSky = false;
 
 void Circle(float radius, float xc, float yc, float r, float g, float b){
     glLineWidth(7.5);
     glBegin(GL_POLYGON);
     for(int i=0; i<200; i++) {
-        glColor3ub(r,g,b);
+        if(nightSky == false) glColor3ub(r,g,b);
+        else glColor3ub(245, 255, 250);
         float pi=3.1416;
         float A=(i*2*pi)/200;
         float r=radius;
@@ -101,7 +103,8 @@ void sunUpdateRise(int value)///Sun_animation
 void sky()
 {
     glBegin(GL_POLYGON);
-    glColor3ub(0, 128, 255);
+    if(nightSky == true) glColor3ub(0,0,0);
+    else glColor3ub(0, 128, 255);
     glVertex2f(-250.0f, 250.0f);
     glVertex2f(250.0f, 250.0f);
     glColor3ub(135, 206, 250);
@@ -3897,6 +3900,7 @@ void handleKeypress(unsigned char key, int x, int y)
             moveSun = -60;
 			isNight = false;
 			isDay = true;
+			nightSky = false;
             break;
 		case 'i': case 'I':
              isSnowing = !isSnowing;
@@ -3920,6 +3924,7 @@ void handleKeypress(unsigned char key, int x, int y)
 	  case 'n':
           isNight = true;
 		  isDay = false;
+		  nightSky = true;
           break;
     }
     glutPostRedisplay();
