@@ -11,7 +11,7 @@ float car5Position = 400.0;
 float TrainPosition =400.0;
 float boat1Position =-500.0f;
 float speed =5.0;
-float boatSpeed = 5.0;
+float boatSpeed = 0.3;
 float moveSun = -60.0f;
 
 void Circle(float radius, float xc, float yc, float r, float g, float b){
@@ -2615,6 +2615,8 @@ void drawChalet(float x, float baseY, bool hasSmoke, float phase) {
     if (isDay) glColor3f(0.2f, 0.2f, 0.2f);
     else glColor3f(1.0f, 1.0f, 0.0f);
     glRectf(x + 8, baseY + 18, x + 16, baseY + 26);
+    glRectf(x - 8, baseY + 18, x - 16, baseY + 26);
+
     if (hasSmoke) {
 
         float localSmokeY = fmod(smokeY + phase, 30.0f);
@@ -3471,6 +3473,17 @@ void drawSmallHouse(float x, float y) {
         glVertex2f(x + 2.5f, y + 4.0f);
         glVertex2f(x + 4.5f, y + 4.0f);
     glEnd();
+    glColor3f(0.7f, 0.9f, 1.0f);
+    drawRectangle(x + 7.5f, y + 3.0f, x + 9.5f, y + 5.0f);
+    glColor3f(0.2f, 0.1f, 0.05f); //Frame
+    glLineWidth(1.0f);
+    glBegin(GL_LINES);
+        glVertex2f(x + 8.5f, y + 3.0f);
+        glVertex2f(x + 8.5f, y + 5.0f);
+        glVertex2f(x + 7.5f, y + 4.0f);
+        glVertex2f(x + 9.5f, y + 4.0f);
+    glEnd();
+
 }
 void drawBuilding(float x1, float y1, float x2, float y2, float R, float G, float B, float BR, float BG, float BB) {
     glColor3f(R, G, B);
