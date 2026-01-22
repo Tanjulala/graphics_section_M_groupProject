@@ -11,7 +11,7 @@ float car5Position = 400.0;
 float TrainPosition =400.0;
 float boat1Position =-500.0f;
 float speed =5.0;
-float boatSpeed = 5.0;
+float boatSpeed = 0.30;
 float moveSun = -60.0f;
 
 void Circle(float radius, float xc, float yc, float r, float g, float b){
@@ -3190,7 +3190,6 @@ void initSnow() {
 #include <cmath>
 #include <GL/gl.h>
 #include <GL/glut.h>
-#define PI 3.1416
 
 bool china = true;
 float cloud = 50.0f;
@@ -3206,7 +3205,7 @@ bool isNight = false;
 void drawCircle(float cx, float cy, float r, int segments) {
     glBegin(GL_TRIANGLE_FAN);
     for (int i = 0; i <= segments; ++i) {
-        float angle = 2.0f * PI * i / segments;
+        float angle = 2.0f * 3.1416 * i / segments;
         float x = r * cosf(angle);
         float y = r * sinf(angle);
         glVertex2f(cx + x, cy + y);
@@ -3261,17 +3260,6 @@ void drawBird(float x, float y) {
         glVertex2f(x - 1.5f, y + 0.5f);
         glVertex2f(x, y);
         glVertex2f(x + 1.5f, y + 0.5f);
-    glEnd();
-}
-void drawStars0() {
-    glPointSize(1.5f);
-    glBegin(GL_POINTS);
-    glColor3f(1.0f, 1.0f, 1.0f);
-    for (int i = 0; i < 50; i++) {
-        float x = (i * 7) % 100;
-        float y = 50 + (i * i) % 40;
-        glVertex2f(x, y);
-    }
     glEnd();
 }
 void drawMoon(float x, float y, float radius) {
@@ -3390,6 +3378,16 @@ void drawSmallHouse(float x, float y) {
         glVertex2f(x + 3.5f, y + 5.0f);
         glVertex2f(x + 2.5f, y + 4.0f);
         glVertex2f(x + 4.5f, y + 4.0f);
+    glEnd();
+    glColor3f(0.7f, 0.9f, 1.0f);
+    drawRectangle(x + 7.5f, y + 3.0f, x + 9.5f, y + 5.0f);
+    glColor3f(0.2f, 0.1f, 0.05f); //Frame
+    glLineWidth(1.0f);
+    glBegin(GL_LINES);
+        glVertex2f(x + 8.5f, y + 3.0f);
+        glVertex2f(x + 8.5f, y + 5.0f);
+        glVertex2f(x + 7.5f, y + 4.0f);
+        glVertex2f(x + 9.5f, y + 4.0f);
     glEnd();
 }
 void drawBuilding(float x1, float y1, float x2, float y2, float R, float G, float B, float BR, float BG, float BB) {
