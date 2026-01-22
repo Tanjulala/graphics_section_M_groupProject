@@ -3278,7 +3278,6 @@ bool china = true;
 float cloud = 50.0f;
 float cloudSpeed = 0.02f;
 float boat = 30.0f;
-//float boatSpeed = 0.2f;
 float radarAngle = 0.0f;
 float car = -60.0f;
 float carSpeed = 0.3f;
