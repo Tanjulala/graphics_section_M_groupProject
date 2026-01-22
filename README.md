@@ -75,25 +75,44 @@ Current Features:
 
 3 & 4) Hridoy & Symon : Bangladesh Sirajgonj Bridge A 3D model of the Sirajgonj Bridge including road, river, and surrounding environment.
 Current Features:
+
     $Sky with gradient colors and animated sun rising/setting
+    
     $Grassy area filled with trees, houses, bushes, dirt path, pond, and bench
+    
     $Black road with white dashed dividers and five moving cars
+    
     $Railway tracks with red rails, gray sleepers, and moving multi-carriage train
+    
     $Layered mountain range with snowy peaks and additional hills
+    
     $Complex bridge with gray pillars, supports, and sluice gates
+    
     $Dam structure with concrete walls and gates
+    
     $Blue water bodies including bottom water, dam water, and small pond
+    
     $Moving boat on dam water with hull and rigging
+    
    $Partial day/night mode toggle (sun for day, intended moon/stars for night)
+   
     $Adjustable speed for all animations
+    
     $Mouse controls for boat speed adjustment
     
+    
 Interactive Controls:
+
     $W: Increase animation speed
+    
     $S: Decrease animation speed
+
     $D: Sunrise
+    
     $Mouse Left Click: Increase boat speed
+    
     $Mouse Right Click: Decrease boat speed
+    
     $1-4: Switch between display views
 
 
