@@ -33,3 +33,30 @@
 	<GL/glu.h>
 	<stdlib.h>
 
+1769069211 source:c:\users\aursy\desktop\new folder (4)\openglportable-64bit\openglportable\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<bits/stdc++.h>
+	<GL/glut.h>
+	<cmath>
+	<vector>
+	<cstdlib>
+	<iostream>
+	<cmath>
+	<GL/gl.h>
+	<GL/glut.h>
+
+1769069153 c:\users\aursy\desktop\new folder (4)\openglportable-64bit\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1769069153 c:\users\aursy\desktop\new folder (4)\openglportable-64bit\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
