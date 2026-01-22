@@ -2304,7 +2304,93 @@ void updateBoats(int value) {
 
 
 
+// ======================= TREE =======================
+void drawTree(float x, float y)
+{
+    // Tree trunk
+    glColor3ub(120, 70, 30);
+    glBegin(GL_QUADS);
+    glVertex2f(x-6, y);
+    glVertex2f(x+6, y);
+    glVertex2f(x+6, y+28);
+    glVertex2f(x-6, y+28);
+    glEnd();
 
+    // Tree leaves
+    glColor3ub(0, 160, 60);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(x-30, y+28);
+    glVertex2f(x+30, y+28);
+    glVertex2f(x,    y+80);
+    glEnd();
+}
+
+// ======================= HOUSE =======================
+void drawHouse(float x, float y)
+{
+    // House body
+    glColor3ub(190, 120, 70);
+    glBegin(GL_QUADS);
+    glVertex2f(x-30, y);
+    glVertex2f(x+30, y);
+    glVertex2f(x+30, y+35);
+    glVertex2f(x-30, y+35);
+    glEnd();
+
+    // House roof
+    glColor3ub(150, 40, 40);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(x-35, y+35);
+    glVertex2f(x+35, y+35);
+    glVertex2f(x,    y+65);
+    glEnd();
+
+    // Door
+    glColor3ub(100, 60, 30);
+    glBegin(GL_QUADS);
+    glVertex2f(x-6, y);
+    glVertex2f(x+6, y);
+    glVertex2f(x+6, y+18);
+    glVertex2f(x-6, y+18);
+    glEnd();
+
+    // Left window
+    glColor3ub(180, 220, 255);
+    glBegin(GL_QUADS);
+    glVertex2f(x-22, y+12);
+    glVertex2f(x-12, y+12);
+    glVertex2f(x-12, y+22);
+    glVertex2f(x-22, y+22);
+    glEnd();
+
+    // Right window
+    glBegin(GL_QUADS);
+    glVertex2f(x+12, y+12);
+    glVertex2f(x+22, y+12);
+    glVertex2f(x+22, y+22);
+    glVertex2f(x+12, y+22);
+    glEnd();
+}
+
+void fillGrassScenery()
+{
+    // -------- TREES (UPPER SIDE OF GRASS) --------
+    drawTree(-220, 120);
+    drawTree(-160, 115);
+    drawTree(-100, 120);
+    drawTree(-40,  115);
+    drawTree(40,   120);
+    drawTree(100,  115);
+    drawTree(160,  120);
+    drawTree(220,  115);
+    // -------- HOUSES (LOWER SIDE OF GRASS) --------
+    drawHouse(-180, 70);
+    drawHouse(-60,  75);
+    drawHouse(60,   70);
+    drawHouse(180,  75);
+
+
+}
 void display3() {
     glViewport(0, 0, glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT));
     glMatrixMode(GL_PROJECTION);
@@ -2321,10 +2407,6 @@ void display3() {
     sun();
     glPopMatrix();
     grass();
-    drawChalet(200, 83, true, 0.0f);
-    drawChalet(50, 83, true, 0.0f);
-    drawChalet(-100, 83, true, 0.0f);
-    drawChalet(-220, 83, true, 0.0f);
     road();
     road_divider();
     car1();
@@ -2335,7 +2417,6 @@ void display3() {
     Railline();
     Train();
     mountainRange();
-
     bottomWater();
     bridgeBottom();
     Dam();
@@ -2344,6 +2425,7 @@ void display3() {
     DamSideBoat1();
     glPopMatrix();
     Hill();
+	fillGrassScenery();
     glutSwapBuffers();
 
 }
